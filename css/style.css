@@ -33,7 +33,7 @@ li {
 }
 
 .app {
-  height: 100vh;
+  min-height: 100vh;
   background: #0f0c29;
   /* fallback for old browsers */
   /* Chrome 10-25, Safari 5.1-6 */
@@ -186,9 +186,7 @@ li {
 }
 
 .content {
-  min-height: -webkit-max-content;
-  min-height: -moz-max-content;
-  min-height: max-content;
+  min-height: 100%;
   background: #141E30;
   /* fallback for old browsers */
   /* Chrome 10-25, Safari 5.1-6 */
@@ -203,6 +201,12 @@ li {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .content {
+    height: 100%;
+  }
 }
 
 button {
@@ -473,7 +477,7 @@ button:hover {
   background: -webkit-gradient(linear, left top, left bottom, from(#24243e), color-stop(#302b63), to(#0f0c29));
   background: linear-gradient(to bottom, #24243e, #302b63, #0f0c29);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  z-index: 100;
+  z-index: 1000;
   justify-items: center;
   padding: 2rem 0;
   -webkit-transform: translateX(100%);
