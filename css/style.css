@@ -46,13 +46,14 @@ li {
       grid-template-columns: 200px 1fr;
 }
 
-@media only screen and (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em) and (min-height: 300px) {
   .app {
     height: auto;
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
     -ms-grid-rows: 10vh auto;
         grid-template-rows: 10vh auto;
+    overflow-x: hidden;
   }
 }
 
@@ -63,7 +64,7 @@ li {
   position: relative;
 }
 
-@media only screen and (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em) and (min-height: 300px) {
   .navigation {
     padding: 1rem 2rem;
     display: -webkit-box;
@@ -85,7 +86,7 @@ li {
   cursor: pointer;
 }
 
-@media only screen and (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em) and (min-height: 300px) {
   .navigation__user {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -105,7 +106,7 @@ li {
   margin: 1rem auto;
 }
 
-@media only screen and (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em) and (min-height: 300px) {
   .navigation__user::after {
     display: none;
   }
@@ -119,7 +120,7 @@ li {
   margin: 0 auto 1rem auto;
 }
 
-@media only screen and (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em) and (min-height: 300px) {
   .navigation__img {
     margin: 0;
     width: 50px;
@@ -135,7 +136,7 @@ li {
   text-align: left;
 }
 
-@media only screen and (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em) and (min-height: 300px) {
   .navigation__list {
     display: none;
   }
@@ -248,7 +249,7 @@ button:hover {
   padding: 1rem 0;
 }
 
-@media only screen and (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em) and (min-height: 300px) {
   .genre-list {
     top: 25vh;
     -webkit-transform-origin: top;
@@ -337,9 +338,10 @@ button:hover {
       -ms-flex-align: start;
           align-items: start;
   grid-gap: 1rem;
+  padding: 1rem;
 }
 
-@media only screen and (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em) and (min-height: 300px) {
   .movies {
     height: auto;
     grid-gap: 2rem;
@@ -454,7 +456,7 @@ button:hover {
   display: none;
 }
 
-@media only screen and (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em) and (min-height: 300px) {
   .burger {
     display: block;
     font-size: 1.5rem;
@@ -488,7 +490,7 @@ button:hover {
   transition: transform 500ms cubic-bezier(0, 0.5, 0, 0.99), -webkit-transform 500ms cubic-bezier(0, 0.5, 0, 0.99);
 }
 
-@media only screen and (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em) and (min-height: 300px) {
   .mobilenavigation__list {
     display: -ms-grid;
     display: grid;

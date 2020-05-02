@@ -3,7 +3,11 @@
         @media only screen and(max-width:900px){@content};
     }
     @if($breakpoint == cp){
-        @media only screen and(max-width:37.5em){@content};
+        @media only screen and(max-width:37.5em) and (min-height:300px){@content};
+    }
+
+    @if($breakpoint == lcp){
+        @media only screen and(max-height:37.5em){@content};
     }
 }
 
@@ -56,7 +60,9 @@ li{
         height: auto;
         grid-template-columns: 1fr;
         grid-template-rows: 10vh auto;
+        overflow-x: hidden;
     }
+    
 }
 
 .navigation{
@@ -278,6 +284,7 @@ button{
     justify-items: center;
     align-items: start;
     grid-gap: 1rem;
+    padding: 1rem;
 
     @include query(cp){
         height: auto;
