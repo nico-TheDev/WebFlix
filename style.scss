@@ -54,7 +54,7 @@ li{
 
     @include query(cp){
         grid-template-columns: 1fr;
-        grid-template-rows: 10vh 1fr;
+        grid-template-rows: 10vh auto;
     }
 }
 
@@ -179,7 +179,7 @@ li{
     flex-direction: column;
 
     @include query(cp){
-        height: 100%;
+        height: auto;
     }
 
     
@@ -289,8 +289,9 @@ button{
     overflow-y: scroll;
 
     @include query(cp){
-        height: 85vh;
+        height: auto;
         grid-gap: 2rem;
+        overflow: auto;
     }
 }
 
