@@ -16,7 +16,7 @@ body {
   line-height: 1.5;
   font-family: 'Open Sans',sans-serif;
   color: white;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5 {
@@ -33,7 +33,7 @@ li {
 }
 
 .app {
-  min-height: 100vh;
+  height: 100vh;
   background: #0f0c29;
   /* fallback for old browsers */
   /* Chrome 10-25, Safari 5.1-6 */
@@ -48,6 +48,7 @@ li {
 
 @media only screen and (max-width: 37.5em) {
   .app {
+    height: auto;
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
     -ms-grid-rows: 10vh auto;
@@ -56,7 +57,9 @@ li {
 }
 
 .navigation {
+  display: block;
   padding: 1rem 0;
+  height: 100%;
   position: relative;
 }
 
@@ -186,7 +189,6 @@ li {
 }
 
 .content {
-  min-height: 100%;
   background: #141E30;
   /* fallback for old browsers */
   /* Chrome 10-25, Safari 5.1-6 */
@@ -201,12 +203,7 @@ li {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-}
-
-@media only screen and (max-width: 37.5em) {
-  .content {
-    height: auto;
-  }
+  overflow-y: scroll;
 }
 
 button {
@@ -241,7 +238,10 @@ button:hover {
   z-index: 100;
   -webkit-transform-origin: top right;
           transform-origin: top right;
+  color: currentColor;
   border-radius: 1rem;
+  -webkit-box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
 }
 
 .genre-list .genreBtn {
@@ -328,7 +328,6 @@ button:hover {
 
 .movies {
   width: 100%;
-  height: 77vh;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (minmax(12rem, 1fr))[auto-fit];
@@ -338,7 +337,6 @@ button:hover {
       -ms-flex-align: start;
           align-items: start;
   grid-gap: 1rem;
-  overflow-y: scroll;
 }
 
 @media only screen and (max-width: 37.5em) {

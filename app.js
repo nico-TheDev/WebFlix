@@ -35,14 +35,17 @@ function sortCards(genre){
 
         if (movieCards[i].dataset.genre === genre){
             movieCards[i].style.display = 'block';
+            genreList.classList.remove('open');
         }
 
         else if(genre === 'all'){
             movieCards[i].style.display = 'block';
+            genreList.classList.remove('open');
         }
 
         else{
             movieCards[i].style.display = 'none';
+            genreList.classList.remove('open');
         }
     }
 }
@@ -82,6 +85,7 @@ function changeTheme(){
     mobileNav.classList.toggle('light');
     app.classList.toggle('light');
     content.classList.toggle('light');
+    genreList.classList.toggle('light');
 
   
 }
