@@ -53,7 +53,7 @@ function checkSearch(){
     searchText = search.value;
 
     for (let i = 0; i < movieCards.length;i++){
-        if(movieCards[i].dataset.genre.includes(searchText)){
+        if(movieCards[i].dataset.genre.includes(searchText.toLowerCase())){
             movieCards[i].style.display = 'block';
         }
         else{
