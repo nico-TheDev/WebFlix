@@ -331,12 +331,15 @@ button:hover {
   width: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(12rem, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
-  justify-items: center;
+  -ms-grid-columns: (minmax(12rem, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  justify-items: start;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
   grid-gap: 1rem;
   padding: 1rem;
 }
@@ -346,6 +349,7 @@ button:hover {
     height: auto;
     grid-gap: 2rem;
     overflow: auto;
+    justify-items: center;
   }
 }
 
@@ -501,6 +505,160 @@ button:hover {
   padding: 1rem;
 }
 
+.modal {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 999;
+  -webkit-transition: all 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
+.popup {
+  width: 80%;
+  height: 60%;
+  background-color: black;
+  padding: 1rem 3rem;
+  color: currentColor;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 35% 1fr;
+      grid-template-columns: 35% 1fr;
+  position: relative;
+  grid-gap: 1rem;
+}
+
+@media only screen and (max-width: 37.5em) and (min-height: 300px) {
+  .popup {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    height: 90%;
+  }
+}
+
+.popup__cover {
+  height: 100%;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 37.5em) and (min-height: 300px) {
+  .popup__cover {
+    display: none;
+  }
+}
+
+.popup__img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+
+.popup__text {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 1.2rem;
+}
+
+@media only screen and (max-width: 37.5em) and (min-height: 300px) {
+  .popup__text {
+    margin-bottom: 1rem;
+    word-break: break-all;
+  }
+}
+
+@media only screen and (max-width: 37.5em) and (min-height: 300px) {
+  .popup__title {
+    font-size: 90%;
+  }
+}
+
+.popup__buttons {
+  margin-top: auto;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  -ms-grid-row-align: end;
+      align-self: end;
+}
+
+.popup__watch, .popup__fav {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 4rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #009999;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  -webkit-transition: all 500ms;
+  transition: all 500ms;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.popup__watch:hover, .popup__fav:hover {
+  background-color: cyan;
+  color: black;
+}
+
+.popup__summary {
+  margin-top: 1rem;
+  text-align: justify;
+}
+
+.popup .buttons {
+  position: absolute;
+  z-index: 999;
+}
+
+.popup .prev {
+  top: 50%;
+  left: 0;
+}
+
+.popup .next {
+  top: 50%;
+  right: 0;
+}
+
+.popup .close {
+  top: 5px;
+  right: -5px;
+}
+
 .active {
   -webkit-transform: translateX(0);
           transform: translateX(0);
@@ -517,5 +675,12 @@ button:hover {
   background-image: -webkit-gradient(linear, left top, right top, from(#FFFFFF), to(#FFEFBA)) !important;
   background-image: linear-gradient(to right, #FFFFFF, #FFEFBA) !important;
   color: black;
+}
+
+.showModal {
+  opacity: 1;
+  pointer-events: all;
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 /*# sourceMappingURL=style.css.map */

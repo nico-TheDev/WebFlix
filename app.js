@@ -1,4 +1,4 @@
-let mobileNav,burger,genreBtn,genreList,movieCards,animeBtn,movieBtn,tvBtn,allBtn,search,searchText;
+let mobileNav,burger,genreBtn,genreList,movieCards,animeBtn,movieBtn,tvBtn,allBtn,search,searchText,watchBtn;
 
 mobileNav = document.querySelector('.mobilenavigation__list');
 burger = document.querySelector('.burger');
@@ -13,7 +13,7 @@ allBtn = document.querySelector('.allBtn');
 
 search = document.querySelector('.searchbox__input');
 
-
+watchBtn = document.querySelectorAll('.watch');
 
 // DONE FUNCTIONALITY ================================================================
 
@@ -56,7 +56,7 @@ function checkSearch(){
     searchText = search.value;
 
     for (let i = 0; i < movieCards.length;i++){
-        if(movieCards[i].dataset.genre.includes(searchText.toLowerCase())){
+        if(movieCards[i].dataset.title.includes(searchText.toLowerCase())){
             movieCards[i].style.display = 'block';
         }
         else{
@@ -86,6 +86,225 @@ function changeTheme(){
     app.classList.toggle('light');
     content.classList.toggle('light');
     genreList.classList.toggle('light');
-
-  
 }
+
+
+// =================================MODAL EFFECT============================
+
+//When we click watch a modal appears
+
+//click the modal will appear
+// the modal will change content based on the current element chosen
+
+//get the value of the current element 
+
+//pass it to the modal
+
+let parent,coverImg,movieName,movieYear,movieRatings,closeModal,popupNext,popupPrev,modal,popup,popupChildren,popupText,popupCover,popupTitle,popupImg,popupRatings,popupSummary,movieRate,movieSummary;
+
+modal = document.querySelector('.modal');
+popup = document.querySelector('.popup');
+closeModal = document.querySelector('.close');
+popupPrev = document.querySelector('.prev');
+popupNext = document.querySelector('.next');
+
+popupTitle = document.querySelector('.popup__title');
+popupRatings = document.querySelector('.popup__rate');
+popupImg = document.querySelector('.popup__img');
+popupSummary = document.querySelector('.popup__summary');
+
+// SHOW MODAL
+closeModal.addEventListener('click',function(){
+    modal.classList.remove('showModal');
+});
+
+
+function reassignPopup (e){
+    let currentCard = i;
+    parent = e.target.parentElement.parentElement.children; // gets the current movie card with the target
+    coverImg = parent[0]; // // gets the cover Image
+    movieName = parent[1]; // gets the movie name
+    // movieYear = parent[2]; // gets the movie year
+    movieRatings = parent[3].children;
+    movieRate =  movieRatings[1];
+    movieSummary = movieRatings[0].lastElementChild;
+
+    console.log(movieCards[i].children);
+    console.log(parent);
+    console.log(movieSummary);
+    console.log(parent);
+    console.log(movieRatings);
+    modal.classList.add('showModal');
+
+
+
+    popupImg.setAttribute('src',coverImg.src);
+    popupTitle.textContent = movieName.textContent;
+    popupRatings.textContent = movieRate.textContent;
+    popupSummary.textContent = movieSummary.textContent;
+}
+
+// POPUP
+for (let i = 0; i < watchBtn.length; i++){
+    // creates an event listener to all watch button
+    watchBtn[i].addEventListener('click',function(e){
+        let currentCard = i;
+        parent = e.target.parentElement.parentElement.children; // gets the current movie card with the target
+        coverImg = parent[0]; // // gets the cover Image
+        movieName = parent[1]; // gets the movie name
+        // movieYear = parent[2]; // gets the movie year
+        movieRatings = parent[3].children;
+        movieRate =  movieRatings[1];
+        movieSummary = movieRatings[0].lastElementChild;
+
+        console.log(movieCards[i].children);
+        console.log(parent);
+        console.log(movieSummary);
+        console.log(parent);
+        console.log(movieRatings);
+        modal.classList.add('showModal');
+
+    
+
+        popupImg.setAttribute('src',coverImg.src);
+        popupTitle.textContent = movieName.textContent;
+        popupRatings.textContent = movieRate.textContent;
+        popupSummary.textContent = movieSummary.textContent;
+
+
+        popupNext.addEventListener('click',function(){
+            // the current card index
+            // do the same thing as assigning every element in popup based on index
+
+            if (currentCard >= (movieCards.length - 1)){
+                currentCard = 0;
+
+                parent = movieCards[currentCard].children;
+                console.log(parent);
+                coverImg = parent[0]; // // gets the cover Image
+                movieName = parent[1]; // gets the movie name
+                // movieYear = parent[2]; // gets the movie year
+                movieRatings = parent[3].children;
+                movieRate =  movieRatings[1];
+                movieSummary = movieRatings[0].lastElementChild;
+                console.log();
+                console.log(movieSummary);
+                console.log(parent);
+                console.log(movieRatings);
+                modal.classList.add('showModal');
+        
+            
+        
+                popupImg.setAttribute('src',coverImg.src);
+                popupTitle.textContent = movieName.textContent;
+                popupRatings.textContent = movieRate.textContent;
+                popupSummary.textContent = movieSummary.textContent;
+            }
+            else{
+                currentCard++;
+                parent = movieCards[currentCard].children;
+                console.log(parent);
+                coverImg = parent[0]; // // gets the cover Image
+                movieName = parent[1]; // gets the movie name
+                // movieYear = parent[2]; // gets the movie year
+                movieRatings = parent[3].children;
+                movieRate =  movieRatings[1];
+                movieSummary = movieRatings[0].lastElementChild;
+                console.log();
+                console.log(movieSummary);
+                console.log(parent);
+                console.log(movieRatings);
+                modal.classList.add('showModal');
+        
+            
+        
+                popupImg.setAttribute('src',coverImg.src);
+                popupTitle.textContent = movieName.textContent;
+                popupRatings.textContent = movieRate.textContent;
+                popupSummary.textContent = movieSummary.textContent;
+            }
+               
+        });
+
+        popupPrev.addEventListener('click',function(){
+            // the current card index
+            // do the same thing as assigning every element in popup based on index
+            console.log(currentCard);
+            if (currentCard <= 0){
+                currentCard = movieCards.length - 1;
+                parent = movieCards[currentCard].children;
+                console.log(parent);
+                coverImg = parent[0]; // // gets the cover Image
+                movieName = parent[1]; // gets the movie name
+                // movieYear = parent[2]; // gets the movie year
+                movieRatings = parent[3].children;
+                movieRate =  movieRatings[1];
+                movieSummary = movieRatings[0].lastElementChild;
+                console.log();
+                console.log(movieSummary);
+                console.log(parent);
+                console.log(movieRatings);
+                modal.classList.add('showModal');
+        
+            
+        
+                popupImg.setAttribute('src',coverImg.src);
+                popupTitle.textContent = movieName.textContent;
+                popupRatings.textContent = movieRate.textContent;
+                popupSummary.textContent = movieSummary.textContent;            }
+
+            else{
+                currentCard--;
+                parent = movieCards[currentCard].children;
+                coverImg = parent[0]; // // gets the cover Image
+                movieName = parent[1]; // gets the movie name
+                // movieYear = parent[2]; // gets the movie year
+                movieRatings = parent[3].children;
+                movieRate =  movieRatings[1];
+                movieSummary = movieRatings[0].lastElementChild;
+                console.log();
+                console.log(movieSummary);
+                console.log(parent);
+                console.log(movieRatings);
+                modal.classList.add('showModal');
+        
+            
+        
+                popupImg.setAttribute('src',coverImg.src);
+                popupTitle.textContent = movieName.textContent;
+                popupRatings.textContent = movieRate.textContent;
+                popupSummary.textContent = movieSummary.textContent;
+            }
+             
+        });
+        
+        
+        
+
+    });
+}
+
+
+
+
+// watchBtn.forEach(function(button){
+//     button.addEventListener('click',function(e){
+//                 parent = e.target.parentElement.parentElement.children;
+//                 coverImg = parent[0];
+//                 movieName = parent[1];
+//                 movieYear = parent[2];
+//                 movieRatings = parent[3].children;
+//                 movieRate =  movieRatings[1];
+//                 movieSummary = movieRatings[0].lastElementChild;
+//                 console.log(movieSummary);
+//                 console.log(parent);
+//                 console.log(movieRatings);
+//                 modal.classList.add('showModal');
+        
+            
+        
+//                 popupImg.setAttribute('src',coverImg.src);
+//                 popupTitle.textContent = movieName.textContent;
+//                 popupRatings.textContent = movieRate.textContent;
+//                 popupSummary.textContent = movieSummary.textContent;
+// })});
