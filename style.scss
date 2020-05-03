@@ -491,6 +491,7 @@ button{
         display: flex;
         flex-direction: column;
         font-size: 1.2rem;
+        color: white;
 
         @include query(cp){
             margin-bottom: 1rem;
@@ -511,6 +512,7 @@ button{
         grid-template-columns: 1fr 1fr;
         grid-gap: 1rem;
         align-self: end;
+        color: white;
     }
     &__watch,&__fav{
         @include buttonStyle;
@@ -527,6 +529,7 @@ button{
     .buttons{
         position: absolute;
         z-index: 999;
+        color: white;
     }
 
     .prev{

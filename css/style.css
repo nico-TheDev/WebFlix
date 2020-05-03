@@ -588,6 +588,7 @@ button:hover {
       -ms-flex-direction: column;
           flex-direction: column;
   font-size: 1.2rem;
+  color: white;
 }
 
 @media only screen and (max-width: 37.5em) and (min-height: 300px) {
@@ -613,6 +614,7 @@ button:hover {
   grid-gap: 1rem;
   -ms-grid-row-align: end;
       align-self: end;
+  color: white;
 }
 
 .popup__watch, .popup__fav {
@@ -650,6 +652,7 @@ button:hover {
 .popup .buttons {
   position: absolute;
   z-index: 999;
+  color: white;
 }
 
 .popup .prev {
