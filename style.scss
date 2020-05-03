@@ -451,7 +451,7 @@ button{
 
 .popup{
     width: 80%;
-    height: 60%;
+    height: 80%;
     background-color: black;
     padding: 1rem 3rem;
     color: currentColor;
@@ -461,8 +461,9 @@ button{
     grid-gap: 1rem;
 
     @include query(cp){
+        width: 100%;
+        height: 100%;
         grid-template-columns: 1fr;
-        height: 90%;
     }
 
     &__cover{
@@ -470,14 +471,19 @@ button{
         overflow: hidden;
 
         @include query(cp){
-            display: none;
+            height: 250px;
         }
+        
     }
     &__img{
         width: 100%;
         height: 100%;
         object-fit: cover;
         display: block;
+
+        @include query(cp){
+            object-fit: contain;
+        }
     }
 
     &__text{
