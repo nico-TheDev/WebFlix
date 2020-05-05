@@ -1,0 +1,99 @@
+.popup{
+    width: 80%;
+    height: 80%;
+    background-color: black;
+    padding: 1rem 3rem;
+    color: currentColor;
+    display: grid;
+    grid-template-columns: 35% 1fr;
+    position: relative;
+    grid-gap: 1rem;
+
+    @include query(cp){
+        width: 100%;
+        height: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    &__cover{
+        height: 100%;
+        overflow: hidden;
+
+        @include query(cp){
+            height: 250px;
+        }
+        
+    }
+    &__img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+
+        @include query(cp){
+            object-fit: contain;
+        }
+    }
+
+    &__text{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        font-size: 1.2rem;
+        color: white;
+
+        @include query(cp){
+            margin-bottom: 1rem;
+            word-break: break-all;
+        }
+    }
+
+    &__title{
+        @include query(cp){
+            font-size: 90%;
+        }
+    }
+
+    &__buttons{
+        margin-top: auto;
+        width: 100%;
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1rem;
+        align-self: end;
+        color: white;
+    }
+    &__watch,&__fav{
+        @include buttonStyle;
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    &__summary{
+        margin-top: 1rem;
+        text-align: justify;
+    }
+
+
+    .buttons{
+        position: absolute;
+        z-index: 999;
+        color: white;
+    }
+
+    .prev{
+        top: 50%;
+        left: 0;
+    }
+
+    .next{
+        top: 50%;
+        right: 0;
+    }
+    
+    .close{
+        top: 5px;
+        right: -5px;
+    }
+}
+

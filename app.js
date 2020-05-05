@@ -1,15 +1,18 @@
-let mobileNav,burger,genreBtn,genreList,movieCards,animeBtn,movieBtn,tvBtn,allBtn,search,searchText,watchBtn;
+let mobileNav,burger,genreBtn,genreList,movieCards,animeBtn,movieBtn,tvBtn,allBtn,search,searchText,watchBtn,bookmark;
 
 mobileNav = document.querySelector('.mobilenavigation__list');
 burger = document.querySelector('.burger');
 genreBtn = document.querySelector('.searchbox__genre');
 genreList = document.querySelector('.genre-list');
+bookmark = document.querySelector('.bookmark');
 movieCards = document.querySelectorAll('.movie');
 
 animeBtn = document.querySelector('.animeBtn');
 movieBtn = document.querySelector('.movieBtn');
 tvBtn = document.querySelector('.tvBtn');
 allBtn = document.querySelector('.allBtn');
+bookmarkBtn = document.querySelector('.searchbox__fav');
+
 
 search = document.querySelector('.searchbox__input');
 
@@ -25,6 +28,10 @@ genreBtn.addEventListener('click',function(){
     console.log('click');
     genreList.classList.toggle('open');
 }); 
+
+bookmarkBtn.addEventListener('click',function(){
+    bookmark.classList.toggle('open');
+});
 
 
 
@@ -135,11 +142,14 @@ function reassignPopup (){
 }
 
 // POPUP
+
+let currentCard;
+
 for (let i = 0; i < watchBtn.length; i++){
     // creates an event listener to all watch button
     watchBtn[i].addEventListener('click',function(e){
 
-        let currentCard = i;
+        currentCard = i;
         parent = e.target.parentElement.parentElement.children; // gets the current movie card with the target
 
         reassignPopup();
@@ -147,7 +157,8 @@ for (let i = 0; i < watchBtn.length; i++){
         popupNext.addEventListener('click',function(){
             // the current card index
             // do the same thing as assigning every element in popup based on index
-
+            console.log(currentCard);
+            console.log(popupTitle.textContent);
             if (currentCard >= (movieCards.length - 1)){
                 currentCard = 0;
                 parent = movieCards[currentCard].children;
@@ -180,3 +191,36 @@ for (let i = 0; i < watchBtn.length; i++){
     });
 }
 
+// BOOKMARKED
+
+// bookmark 
+
+
+let bookmarkedTitles = [];
+let popupBookmark = document.querySelector('.popup__fav');
+let clonedBookmarkItem;
+popupBookmark.addEventListener('click',function(){
+
+    if(bookmarkedTitles.includes(popupTitle.textContent)){ // check if title is already bookmarked
+        alert('You removed ' + popupTitle.textContent + ' from the bookmarked list!');
+        bookmarkedTitles.pop(); // deletes the previous title
+        bookmark.lastElementChild.style.display = 'none';
+    }
+    else{
+        alert('You bookmared ' + popupTitle.textContent);
+        clonedBookmarkItem = bookmark.firstElementChild.cloneNode(true);
+        clonedBookmarkItem.firstElementChild.textContent = popupTitle.textContent;
+        clonedBookmarkItem.style.display = 'grid';
+        bookmark.appendChild(clonedBookmarkItem);
+        bookmarkedTitles.push(popupTitle.textContent);
+    }    //adds it again
+       
+    
+
+ 
+});
+
+document.body.addEventListener('click',function(){
+    // bookmark.classList.remove('open');
+    // genreList.classList.remove('open');
+});

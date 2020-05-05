@@ -670,6 +670,50 @@ button:hover {
   right: -5px;
 }
 
+.bookmark {
+  width: 300px;
+  background: -webkit-gradient(linear, right top, left top, from(#243B55), to(#141E30));
+  background: linear-gradient(to left, #243B55, #141E30);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding: 1rem;
+  border-radius: 5px;
+  color: currentColor;
+  position: absolute;
+  top: 13vh;
+  right: 0rem;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: 500ms ease;
+  transition: 500ms ease;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+}
+
+.bookmark__item {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr max-content;
+      grid-template-columns: 1fr -webkit-max-content;
+      grid-template-columns: 1fr max-content;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: none;
+}
+
+.bookmark__title {
+  font-size: 1.5rem;
+}
+
+.bookmark__head {
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .active {
   -webkit-transform: translateX(0);
           transform: translateX(0);

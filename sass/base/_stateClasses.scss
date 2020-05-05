@@ -1,0 +1,21 @@
+.active{
+    transform: translateX(0);
+}
+
+.open{
+    opacity: 1;
+    pointer-events: all;
+    transform: scale(1);
+}
+
+.light{
+    background-image: linear-gradient(to right, #FFFFFF, #FFEFBA)!important;
+    color: black;
+}
+
+.showModal{
+    opacity: 1;
+    pointer-events: all;
+    transform: scale(1);
+}
+
