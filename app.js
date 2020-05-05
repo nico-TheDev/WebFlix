@@ -207,7 +207,7 @@ popupBookmark.addEventListener('click',function(){
         bookmark.lastElementChild.style.display = 'none';
     }
     else{
-        alert('You bookmared ' + popupTitle.textContent);
+        alert('You bookmarked ' + popupTitle.textContent);
         clonedBookmarkItem = bookmark.firstElementChild.cloneNode(true);
         clonedBookmarkItem.firstElementChild.textContent = popupTitle.textContent;
         clonedBookmarkItem.style.display = 'grid';
